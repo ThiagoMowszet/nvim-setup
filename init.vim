@@ -14,14 +14,16 @@ set noshowmode
 
 
 
-
 " CONFIGURACION DE PLUGINS
 
 call plug#begin('~/AppData/Local/nvim/Plugins')
 
-Plug 'sainnhe/gruvbox-material'
-Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/lightline.vim'
+Plug 'sainnhe/gruvbox-material' "Tema: Gruvbox
+Plug 'sheerun/vim-polyglot' "Polyglot: para el mejorar el highlighting
+Plug 'itchyny/lightline.vim' "Bar: Lighline
+Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
+Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
+
 
 call plug#end()
 
@@ -57,3 +59,8 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+
+
+
+"TODO personalizar la configuracion de NERDtree
