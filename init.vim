@@ -24,7 +24,6 @@ set nocompatible "Para poder mejorar la sintaxis
 set noshowmode
 
 
-
 " CONFIGURACION DE PLUGINS
 
 call plug#begin('~/AppData/Local/nvim/Plugins')
@@ -36,7 +35,6 @@ Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
-
 
 call plug#end()
 
@@ -75,3 +73,4 @@ let g:lightline = {
 
 "TODO personalizar la configuracion de NERDtree
 "TODO configurar sniprun
+"TODO mejorar la colorizacion de los simbolos [{()}]
