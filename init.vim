@@ -1,7 +1,6 @@
 " Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores, para que los bordes desaparezcan: 
-                  "padding": "0, 0, 0, 0,
-                  "scrollbarState": "hidden
-
+                  " padding: 0, 0, 0, 0,
+                  " scrollbarState": hidden
 
 
 " CONFIGURACIONES BASICAS
@@ -13,10 +12,14 @@ set showcmd "Seteo para que muestre los comandos de la terminal
 set encoding=utf-8 "Seteo la codificacion
 set relativenumber "Seteo los numeros relativos
 set noswapfile "para evitar el mensaje que sale al abrir algunos archivos sobre swap
-set clipboard+=unnamedplus "para poder utilizar el portapapeles del sistema operativo 'esto permite poder copiar y pegar desde cualquier parte a nvim y viceversa
+set clipboard+=unnamedplus "para poder utilizar el portapapeles del sistema operativo. Nos permite poder copiar y pegar desde cualquier parte a nvim y viceversa
 set sw=4 "la indentación genera 4 espacios
 set nocompatible "Para poder mejorar la sintaxis
 set noshowmode
+set incsearch
+set scrolloff=8
+set signcolumn=yes
+
 
 
 " CONFIGURACION DE PLUGINS
@@ -33,6 +36,9 @@ Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
 Plug 'ryanoasis/vim-devicons' "Iconos para NERDtree
 
 call plug#end()
+
+
+
 
 " CONFIGURACION DEL TEMA 
 
@@ -63,13 +69,27 @@ let g:lightline = {
       \ }
 
 
+
+
+
 " CONFIGURACION DE NERDTree, uso la tecla F4 para abrir y cerrar el sistema de arhichivos
 nnoremap <F4> :NERDTreeToggle<CR>
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
 
-"TODO personalizar la configuracion de NERDtree
+
+"CONFIGURANDO AL TECLA LIDER
+let mapleader=","
+
+"mapeando tecla para guardar rapido
+nmap <leader>w :w<CR>
+"mapeando tecla para salir rapido
+nmap <leader>q :q<CR>
+
+
+
+"TODO personalizar la configuracion de NERDtree - LISTO
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
 "TODO cambiar el background a transparente
-
