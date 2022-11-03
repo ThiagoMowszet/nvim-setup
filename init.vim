@@ -1,8 +1,3 @@
-"
-"
-"
-"
-"
 " Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores, para que los bordes desaparezcan: 
                   "padding": "0, 0, 0, 0,
                   "scrollbarState": "hidden
@@ -35,10 +30,9 @@ Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
+Plug 'ryanoasis/vim-devicons' "Iconos para NERDtree
 
 call plug#end()
-
-
 
 " CONFIGURACION DEL TEMA 
 
@@ -61,7 +55,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch','readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
@@ -69,8 +63,13 @@ let g:lightline = {
       \ }
 
 
+" CONFIGURACION DE NERDTree, uso la tecla F4 para abrir y cerrar el sistema de arhichivos
+nnoremap <F4> :NERDTreeToggle<CR>
+
 
 
 "TODO personalizar la configuracion de NERDtree
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
+"TODO cambiar el background a transparente
+
