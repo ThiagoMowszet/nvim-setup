@@ -3,7 +3,7 @@
 "
 "
 "
-" Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores: 
+" Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores, para que los bordes desaparezcan: 
                   "padding": "0, 0, 0, 0,
                   "scrollbarState": "hidden
 
