@@ -1,3 +1,14 @@
+"
+"
+"
+"
+"
+" Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores: 
+                  "padding": "0, 0, 0, 0,
+                  "scrollbarState": "hidden
+
+
+
 " CONFIGURACIONES BASICAS
 
 set number "Seteo los numeros
@@ -24,6 +35,7 @@ Plug 'itchyny/lightline.vim' "Bar: Lighline
 Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
 
 
 call plug#end()
@@ -62,3 +74,4 @@ let g:lightline = {
 
 
 "TODO personalizar la configuracion de NERDtree
+"TODO configurar sniprun
