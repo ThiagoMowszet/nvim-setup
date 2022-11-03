@@ -23,11 +23,10 @@ Plug 'sheerun/vim-polyglot' "Polyglot: para el mejorar el highlighting
 Plug 'itchyny/lightline.vim' "Bar: Lighline
 Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
+Plug 'alvan/vim-closetag' "Autocompletado de tags
 
 
 call plug#end()
-
-
 
 
 
@@ -41,7 +40,6 @@ set background=dark
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
-
 
 
 
