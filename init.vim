@@ -101,3 +101,4 @@ nmap <leader>q :q<CR>
 " agregar manejo de ventanas
 " agregar indentacion
 " agregar format document
+" agregar autosave
