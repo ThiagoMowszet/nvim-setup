@@ -93,3 +93,11 @@ nmap <leader>q :q<CR>
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
 "TODO cambiar el background a transparente
+" AGREGAR : mejorar los brackets
+"agregar snipets
+"agregar manejo de errores
+"agregar plugin de http
+"agregar terminal incluida(?)
+" agregar manejo de ventanas
+" agregar indentacion
+" agregar format document
