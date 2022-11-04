@@ -34,8 +34,11 @@ Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
 Plug 'ryanoasis/vim-devicons' "Iconos para NERDtree
+Plug 'Yggdroot/indentLine' "Mejorar la indentacion
+Plug 'Pocco81/auto-save.nvim'
 
 call plug#end()
+
 
 
 
@@ -87,13 +90,24 @@ nmap <leader>w :w<CR>
 "mapeando tecla para salir rapido
 nmap <leader>q :q<CR>
 
+lua << EOF
+	require("auto-save").setup {
+		-- your config goes here
+		-- or just leave it empty :)
+	}
+EOF
 
 
-"TODO personalizar la configuracion de NERDtree - LISTO
+"TODO personalizar la configuracion de NERDtree 
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
 "TODO cambiar el background a transparente
-" AGREGAR : mejorar los brackets
+"TODO mejorar la fuente y corregir los errores de corte
+
+
+
+
+"agregar mejorar los brackets
 "agregar snipets
 "agregar manejo de errores
 "agregar plugin de http
@@ -101,4 +115,4 @@ nmap <leader>q :q<CR>
 " agregar manejo de ventanas
 " agregar indentacion
 " agregar format document
-" agregar autosave
+" agregar autosave - LISTO
