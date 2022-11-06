@@ -2,7 +2,6 @@
                   " padding: 0, 0, 0, 0,
                   " scrollbarState": hidden
 
-
 " CONFIGURACIONES BASICAS
 
 set number "Seteo los numeros
@@ -35,7 +34,9 @@ Plug 'alvan/vim-closetag' "Autocompletado de tags
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
 Plug 'ryanoasis/vim-devicons' "Iconos para NERDtree
 Plug 'Yggdroot/indentLine' "Mejorar la indentacion
-Plug 'Pocco81/auto-save.nvim'
+Plug 'Pocco81/auto-save.nvim' "Autosave
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Autocomplete plugin
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -90,12 +91,27 @@ nmap <leader>w :w<CR>
 "mapeando tecla para salir rapido
 nmap <leader>q :q<CR>
 
+
+
+" AUTOSAVE
+
 lua << EOF
 	require("auto-save").setup {
 		-- your config goes here
 		-- or just leave it empty :)
 	}
 EOF
+
+
+"LSP CONFIG
+
+lua << EOF
+
+require'lspconfig'.tsserver.setup{}
+
+EOF
+
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 
 
 "TODO personalizar la configuracion de NERDtree 
@@ -113,6 +129,7 @@ EOF
 "agregar plugin de http
 "agregar terminal incluida(?)
 " agregar manejo de ventanas
-" agregar indentacion
+" agregar indentacion - LISTO
 " agregar format document
 " agregar autosave - LISTO
+" agregar git config
