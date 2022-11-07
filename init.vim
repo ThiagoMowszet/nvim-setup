@@ -1,6 +1,6 @@
 " Si usamos nvim en windows, tenemos que agregar en el JSON, los siguientes valores, para que los bordes desaparezcan: 
-                  " padding: 0, 0, 0, 0,
-                  " scrollbarState": hidden
+" padding: 0, 0, 0, 0,
+" scrollbarState": hidden
 
 " CONFIGURACIONES BASICAS
 
@@ -20,14 +20,13 @@ set scrolloff=8
 set signcolumn=yes
 
 
-
 " CONFIGURACION DE PLUGINS
 
 call plug#begin('~/AppData/Local/nvim/Plugins')
 
 Plug 'sainnhe/gruvbox-material' "Tema: Gruvbox
 Plug 'sheerun/vim-polyglot' "Polyglot: para el mejorar el highlighting
-Plug 'itchyny/lightline.vim' "Bar: Lighline
+Plug 'nvim-lualine/lualine.nvim' "Bar: Lualine
 Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
@@ -37,6 +36,7 @@ Plug 'Yggdroot/indentLine' "Mejorar la indentacion
 Plug 'Pocco81/auto-save.nvim' "Autosave
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Autocomplete plugin
 Plug 'neovim/nvim-lspconfig'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 call plug#end()
 
@@ -47,7 +47,7 @@ call plug#end()
 " CONFIGURACION DEL TEMA 
 
 if has('termguicolors')
-    set termguicolors
+      set termguicolors
 endif
 
 set background=dark
@@ -56,23 +56,13 @@ let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
 
 
+"Lualine 
 
-
-
-" CONFIGURACION DE LA BARRA
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch','readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
-
+lua << EOF
+require('lualine').setup {
+  options = { theme  = 'gruvbox-material'}
+}
+EOF
 
 
 
@@ -96,10 +86,10 @@ nmap <leader>q :q<CR>
 " AUTOSAVE
 
 lua << EOF
-	require("auto-save").setup {
-		-- your config goes here
-		-- or just leave it empty :)
-	}
+require("auto-save").setup {
+      -- your config goes here
+      -- or just leave it empty :)
+}
 EOF
 
 
@@ -114,6 +104,14 @@ EOF
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 
 
+lua << EOF
+require("toggleterm").setup{}
+EOF
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+
+
 "TODO personalizar la configuracion de NERDtree 
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
@@ -126,10 +124,9 @@ let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 "agregar mejorar los brackets
 "agregar snipets
 "agregar manejo de errores
-"agregar plugin de http
-"agregar terminal incluida(?)
+"agregar terminal incluida
 " agregar manejo de ventanas
 " agregar indentacion - LISTO
-" agregar format document
+" agregar format document - LISTO
 " agregar autosave - LISTO
 " agregar git config
