@@ -20,6 +20,7 @@ set scrolloff=8
 set signcolumn=yes
 
 
+
 " CONFIGURACION DE PLUGINS
 
 call plug#begin('~/AppData/Local/nvim/Plugins')
@@ -27,16 +28,16 @@ call plug#begin('~/AppData/Local/nvim/Plugins')
 Plug 'sainnhe/gruvbox-material' "Tema: Gruvbox
 Plug 'sheerun/vim-polyglot' "Polyglot: para el mejorar el highlighting
 Plug 'nvim-lualine/lualine.nvim' "Bar: Lualine
-Plug 'preservim/nerdtree' "Barra de archivos: NerdTree
 Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
 Plug 'alvan/vim-closetag' "Autocompletado de tags
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
-Plug 'ryanoasis/vim-devicons' "Iconos para NERDtree
 Plug 'Yggdroot/indentLine' "Mejorar la indentacion
 Plug 'Pocco81/auto-save.nvim' "Autosave
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Autocomplete plugin
 Plug 'neovim/nvim-lspconfig'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+Plug 'nvim-tree/nvim-web-devicons' 
+Plug 'nvim-tree/nvim-tree.lua'
 
 call plug#end()
 
@@ -65,11 +66,35 @@ require('lualine').setup {
 EOF
 
 
+" NVIM TREE
 
-" CONFIGURACION DE NERDTree, uso la tecla F4 para abrir y cerrar el sistema de arhichivos
-nnoremap <F4> :NERDTreeToggle<CR>
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+lua << EOF
+require('nvim-tree').setup()
+EOF
 
+" Nvim-tree lua conf
+
+lua << EOF
+	require'nvim-tree'.setup{
+	}
+	require'nvim-web-devicons'.setup{
+	 -- your personnal icons can go here (to override)
+	 -- you can specify color or cterm_color instead of specifying both of them
+	 -- DevIcon will be appended to `name`
+	 override = {
+	  zsh = {
+	    icon = "",
+	  }
+	 };
+	 -- globally enable default icons (default to false)
+	 -- will get overriden by `get_icons` option
+	 default = true;
+	}
+EOF
+
+
+" Nvim-tree mappings
+nnoremap <F4> :NvimTreeToggle<CR>
 
 
 
@@ -87,8 +112,6 @@ nmap <leader>q :q<CR>
 
 lua << EOF
 require("auto-save").setup {
-      -- your config goes here
-      -- or just leave it empty :)
 }
 EOF
 
@@ -96,11 +119,10 @@ EOF
 "LSP CONFIG
 
 lua << EOF
-
 require'lspconfig'.tsserver.setup{}
-
 EOF
 
+"COC CONFIG
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 
 
@@ -110,7 +132,7 @@ EOF
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-
+nnoremap <F3> :ToggleTerm<CR>
 
 "TODO personalizar la configuracion de NERDtree 
 "TODO configurar sniprun
