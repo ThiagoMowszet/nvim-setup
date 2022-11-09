@@ -4,16 +4,16 @@
 
 " CONFIGURACIONES BASICAS
 
-set number "Seteo los numeros
-set mouse=a "Seteo el uso del mouse
-syntax enable "Seteo la sintaxis
-set showcmd "Seteo para que muestre los comandos de la terminal
-set encoding=utf-8 "Seteo la codificacion
-set relativenumber "Seteo los numeros relativos
-set noswapfile "para evitar el mensaje que sale al abrir algunos archivos sobre swap
-set clipboard+=unnamedplus "para poder utilizar el portapapeles del sistema operativo. Nos permite poder copiar y pegar desde cualquier parte a nvim y viceversa
-set sw=4 "la indentación genera 4 espacios
-set nocompatible "Para poder mejorar la sintaxis
+set number
+set mouse=a
+syntax enable
+set showcmd
+set encoding=utf-8
+set relativenumber
+set noswapfile
+set clipboard+=unnamedplus
+set sw=4
+set nocompatible
 set noshowmode
 set incsearch
 set scrolloff=8
@@ -25,15 +25,15 @@ set signcolumn=yes
 
 call plug#begin('~/AppData/Local/nvim/Plugins')
 
-Plug 'sainnhe/gruvbox-material' "Tema: Gruvbox
-Plug 'sheerun/vim-polyglot' "Polyglot: para el mejorar el highlighting
-Plug 'nvim-lualine/lualine.nvim' "Bar: Lualine
-Plug 'jiangmiao/auto-pairs' "Autocompletado de simbolos
-Plug 'alvan/vim-closetag' "Autocompletado de tags
-Plug 'michaelb/sniprun', {'do': 'bash install.sh'} "Code Runner
-Plug 'Yggdroot/indentLine' "Mejorar la indentacion
-Plug 'Pocco81/auto-save.nvim' "Autosave
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "Autocomplete plugin
+Plug 'sainnhe/gruvbox-material'
+Plug 'sheerun/vim-polyglot'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+Plug 'Yggdroot/indentLine'
+Plug 'Pocco81/auto-save.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'nvim-tree/nvim-web-devicons' 
@@ -57,7 +57,7 @@ let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
 
 
-"Lualine 
+"LUALINE BAR 
 
 lua << EOF
 require('lualine').setup {
@@ -92,7 +92,6 @@ lua << EOF
 	}
 EOF
 
-
 " Nvim-tree mappings
 nnoremap <F4> :NvimTreeToggle<CR>
 
@@ -122,10 +121,13 @@ lua << EOF
 require'lspconfig'.tsserver.setup{}
 EOF
 
+
 "COC CONFIG
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 
 
+
+" TOGGLETERM
 lua << EOF
 require("toggleterm").setup{}
 EOF
@@ -134,7 +136,10 @@ autocmd TermEnter term://*toggleterm#*
 
 nnoremap <F3> :ToggleTerm<CR>
 
-"TODO personalizar la configuracion de NERDtree 
+
+
+
+
 "TODO configurar sniprun
 "TODO mejorar la colorizacion de los simbolos [{()}]
 "TODO cambiar el background a transparente
@@ -146,9 +151,9 @@ nnoremap <F3> :ToggleTerm<CR>
 "agregar mejorar los brackets
 "agregar snipets
 "agregar manejo de errores
-"agregar terminal incluida
+"agregar terminal incluida - LISTO
 " agregar manejo de ventanas
 " agregar indentacion - LISTO
 " agregar format document - LISTO
 " agregar autosave - LISTO
-" agregar git config
+" agregar git config - LISTO
