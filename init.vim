@@ -31,13 +31,13 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
-Plug 'Yggdroot/indentLine'
 Plug 'Pocco81/auto-save.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'nvim-tree/nvim-web-devicons' 
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 
@@ -135,6 +135,18 @@ autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 nnoremap <F3> :ToggleTerm<CR>
+
+
+
+
+
+lua << EOF
+require("indent_blankline").setup {
+      show_end_of_line = true,
+}
+
+EOF
+
 
 
 
